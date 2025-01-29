@@ -1,0 +1,50 @@
+<!-- holdings/list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-blue-100 min-h-screen">
+   <div class="m-4 bg-white rounded shadow">
+       <h2 class="p-4 bg-blue-200">Portfolio information</h2>
+       <table class="w-full">
+           <thead class="bg-blue-50">
+               <tr>
+                   <th class="p-3 text-left">Product name</th>
+                   <th class="p-3">Quantity</th>
+                   <th class="p-3">Price (€)</th>
+                   <th class="p-3">Price in foreign currency</th>
+                   <th class="p-3">Total quantity invested in the product</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for holding in holdings %}
+               <tr class="border-t">
+                   <td class="p-3">{{ holding.instrument.name }}</td>
+                   <td class="p-3 text-right">{{ holding.quantity }}</td>
+                   <td class="p-3 text-right">{{ holding.current_price }}</td>
+                   <td class="p-3 text-right">{{ holding.current_price_foreign }}</td>
+                   <td class="p-3 text-right">{{ holding.total_value }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   </div>
+
+   <!-- Buttons -->
+   <div class="m-4">
+       <button class="bg-red-500 text-white px-6 py-2 rounded">REBALANCING INFORMATION</button>
+       <button class="bg-purple-500 text-white px-6 py-2 rounded ml-4">REBALANCE</button>
+   </div>
+
+   <!-- Stats -->
+   <div class="m-4 flex space-x-4">
+       <div class="bg-blue-200 p-4 rounded">
+           <h3>P&L:</h3>
+           <div class="text-xl">{{ pl_percentage }}%</div>
+       </div>
+       <div class="bg-blue-200 p-4 rounded">
+           <h3>Value of portfolio:</h3>
+           <div class="text-xl">{{ portfolio_value }}€</div>
+       </div>
+   </div>
+</div>
+{% endblock %}

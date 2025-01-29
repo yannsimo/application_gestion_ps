@@ -1,0 +1,100 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gestion Produit Structuré</title>
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex">
+   <!-- Sidebar -->
+   <div id="sidebar" class="w-64 bg-white shadow-lg">
+       <div class="p-4">
+           <h2 class="text-gray-500 text-sm">Menu</h2>
+           <nav class="mt-4">
+               <a href="{% url 'holdings' %}" class="flex items-center p-2 hover:bg-gray-100">
+                   <span class="mr-3">🏠</span>
+                   <div>
+                       <div>Portfolio</div>
+                       <div class="text-xs text-gray-500">Main page to access your portfolio</div>
+                   </div>
+               </a>
+               <a href="{% url 'market_info' %}" class="flex items-center p-2 hover:bg-gray-100">
+                   <span class="mr-3">📊</span>
+                   <div>
+                       <div>Market information</div>
+                       <div class="text-xs text-gray-500">Index in live</div>
+                   </div>
+               </a>
+
+           </nav>
+       </div>
+   </div>
+
+   <!-- Main Content -->
+   <div class="flex-1">
+       <div class="bg-blue-500 text-white">
+           <div class="flex items-center justify-between p-4">
+               <button id="menuToggle" class="text-2xl">☰</button>
+               <h1 class="text-2xl">Portfolio Management</h1>
+               <div>USER.NAME</div>
+           </div>
+           <div class="bg-blue-200 p-4 flex items-center justify-between">
+                <div id="current-date">Today's date: {{ product.courant_date|date:"Y-m-d" }}</div>
+                <div class="flex gap-2">
+                    <button id="dayplus" class="px-2">DAY+1</button>
+                    <input type="text" id="datePicker" placeholder="Choose a day: yyyy-mm-dd" class="text-black px-2 rounded">
+                    <button id="updateDate" class="bg-blue-600 px-4 py-1 rounded">OK</button>
+                </div>
+           </div>
+       </div>
+
+       <main class="container mx-auto px-4 py-8">
+           {% block content %}{% endblock %}
+       </main>
+   </div>
+
+   <script>
+document.getElementById('dayplus').addEventListener('click', async () => {
+    const response = await fetch('/update-current-date/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken')
+        }
+    });
+    const data = await response.json();
+    document.getElementById('current-date').textContent = 'Today\'s date: ' + data.new_date;
+});
+
+document.getElementById('updateDate').addEventListener('click', async () => {
+    const newDate = document.getElementById('datePicker').value;
+    const response = await fetch('/set-current-date/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ date: newDate })
+    });
+    const data = await response.json();
+    document.getElementById('current-date').textContent = 'Today\'s date: ' + data.new_date;
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+</body>
+</html>

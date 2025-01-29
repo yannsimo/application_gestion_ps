@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-blue-100 min-h-screen p-4">
+  <div class="grid grid-cols-3 gap-4 mb-8">
+      {% for indice in indices %}
+      <div class="bg-blue-200 p-4 rounded shadow cursor-pointer" data-index="{{ indice.index.code }}">
+          <div class="text-xl font-bold mb-2">{{ indice.index.name }}</div>
+          <div class="mb-2">
+              <div class="text-sm text-gray-600">Daily performance</div>
+              <div class="text-lg">{{ indice.daily|floatformat:2 }}%</div>
+          </div>
+          <div class="mb-2">
+              <div class="text-sm text-gray-600">6-months performance</div>
+              <div class="text-lg">{{ indice.six_month|floatformat:2 }}%</div>
+          </div>
+          <div>
+              <div class="text-sm text-gray-600">Year performance</div>
+              <div class="text-lg">{{ indice.annual|floatformat:2 }}%</div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-4">
+      <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl" id="chartTitle">Stock Price Movement</h2>
+          <div class="flex gap-4">
+              <button class="px-4 py-2 bg-blue-500 text-white rounded" id="prevIndex">←</button>
+              <button class="px-4 py-2 bg-blue-500 text-white rounded" id="nextIndex">→</button>
+          </div>
+      </div>
+      <div class="chart-container h-96">
+          <canvas id="priceChart"></canvas>
+      </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+async function getChartData(indexCode) {
+   const response = await fetch(`/api/market-data/${indexCode}/`);
+   return await response.json();
+}
+
+async function updateChart(indexCode) {
+   const data = await getChartData(indexCode);
+
+   if (window.currentChart) {
+       window.currentChart.destroy();
+   }
+
+   const ctx = document.getElementById('priceChart').getContext('2d');
+   window.currentChart = new Chart(ctx, {
+       type: 'line',
+       data: {
+           labels: data.dates,
+           datasets: [{
+               label: indexCode,
+               data: data.prices,
+               borderColor: 'rgb(59, 130, 246)',
+               tension: 0.1
+           }]
+       },
+       options: {
+           responsive: true
+       }
+   });
+
+   document.getElementById('chartTitle').textContent = `${indexCode} Price Movement`;
+}
+
+// Navigation
+const indices = [...document.querySelectorAll('[data-index]')].map(el => el.dataset.index);
+let currentIndex = 0;
+
+document.getElementById('prevIndex').onclick = () => {
+   currentIndex = (currentIndex - 1 + indices.length) % indices.length;
+   updateChart(indices[currentIndex]);
+};
+
+document.getElementById('nextIndex').onclick = () => {
+   currentIndex = (currentIndex + 1) % indices.length;
+   updateChart(indices[currentIndex]);
+};
+
+// Initialize
+updateChart(indices[0]);
+
+// Add click handlers to cards
+document.querySelectorAll('[data-index]').forEach(card => {
+   card.onclick = () => updateChart(card.dataset.index);
+});
+</script>
+{% endblock %}
