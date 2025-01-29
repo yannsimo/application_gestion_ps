@@ -21,7 +21,7 @@ class MarketDataLoader:
        if self._data is None:
            df = pd.read_excel(self.file_path, sheet_name="ClosePrice")
            df.set_index('Date', inplace=True)
-           self._data = df.fillna(0)
+           self._data = df.interpolate()
        return self._data
 
    def get_price(self, index_code, date):
