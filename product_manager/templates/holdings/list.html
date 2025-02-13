@@ -2,49 +2,94 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="bg-blue-100 min-h-screen">
-   <div class="m-4 bg-white rounded shadow">
-       <h2 class="p-4 bg-blue-200">Portfolio information</h2>
-       <table class="w-full">
-           <thead class="bg-blue-50">
-               <tr>
-                   <th class="p-3 text-left">Product name</th>
-                   <th class="p-3">Quantity</th>
-                   <th class="p-3">Price (€)</th>
-                   <th class="p-3">Price in foreign currency</th>
-                   <th class="p-3">Total quantity invested in the product</th>
-               </tr>
-           </thead>
-           <tbody>
-               {% for holding in holdings %}
-               <tr class="border-t">
-                   <td class="p-3">{{ holding.instrument.name }}</td>
-                   <td class="p-3 text-right">{{ holding.quantity }}</td>
-                   <td class="p-3 text-right">{{ holding.current_price }}</td>
-                   <td class="p-3 text-right">{{ holding.current_price_foreign }}</td>
-                   <td class="p-3 text-right">{{ holding.total_value }}</td>
-               </tr>
-               {% endfor %}
-           </tbody>
-       </table>
-   </div>
+<div class="min-h-screen bg-blue-100">
+    <!-- En-tête du Portfolio -->
 
-   <!-- Buttons -->
-   <div class="m-4">
-       <button class="bg-red-500 text-white px-6 py-2 rounded">REBALANCING INFORMATION</button>
-       <button class="bg-purple-500 text-white px-6 py-2 rounded ml-4">REBALANCE</button>
-   </div>
 
-   <!-- Stats -->
-   <div class="m-4 flex space-x-4">
-       <div class="bg-blue-200 p-4 rounded">
-           <h3>P&L:</h3>
-           <div class="text-xl">{{ pl_percentage }}%</div>
-       </div>
-       <div class="bg-blue-200 p-4 rounded">
-           <h3>Value of portfolio:</h3>
-           <div class="text-xl">{{ portfolio_value }}€</div>
-       </div>
-   </div>
+    <!-- Information du Portfolio -->
+    <div class="p-4">
+        <h2 class="text-lg mb-4">Portfolio Information</h2>
+
+        <!-- Tableau principal -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-blue-100">
+                    <tr>
+                        <th class="p-3 text-left">Product name</th>
+                        <th class="p-3 text-center">Quantity</th>
+                        <th class="p-3 text-center">Price (€)</th>
+                        <th class="p-3 text-center">Price in foreign currency</th>
+                        <th class="p-3 text-right">Total quantity invested in the product</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, data in Rendement_detail.items %}
+                    <tr class="border-t">
+                        <td class="p-3">{{ data.name }}</td>
+                        <td class="p-3 text-right">{{ data.quantity|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.price_euro|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.price|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.value|floatformat:6 }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% for index, data in positions.items %}
+                    <tr class="border-t">
+                        <td class="p-3">{{ data.name }}</td>
+                        <td class="p-3 text-right">{{ data.quantity|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.price_euro|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.price|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.value|floatformat:6 }}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Boutons de rebalancement -->
+        <div class="mt-4 flex gap-4">
+            <button class="bg-red-500 text-white px-4 py-2 rounded flex items-center">
+                <span class="mr-2">REBALANCING INFORMATION</span>
+                <span>⚪</span>
+            </button>
+            <button class="bg-purple-600 text-white px-4 py-2 rounded flex items-center">
+                <span class="mr-2">REBALANCE</span>
+                <span>▶</span>
+            </button>
+        </div>
+
+        <!-- Informations complémentaires -->
+        <div class="mt-8 grid grid-cols-3 gap-4">
+            <!-- P&L -->
+            <div class="bg-blue-200 p-4 rounded">
+                <h3 class="font-bold">P&L:</h3>
+                <p class="text-xl mt-2">{{ pl_percentage|floatformat:3 }}%</p>
+            </div>
+
+            <!-- Value of portfolio -->
+            <div class="bg-blue-200 p-4 rounded">
+                <h3 class="font-bold">Value of portfolio:</h3>
+                <p class="text-xl mt-2">{{ total_value|floatformat:3 }}€</p>
+            </div>
+
+            <!-- Liquidative value -->
+            <div class="bg-blue-200 p-4 rounded">
+                <h3 class="font-bold">Liquidative value:</h3>
+                <p class="text-xl mt-2">{{ liquidative_value|floatformat:3 }}€</p>
+            </div>
+        </div>
+
+        <!-- Graphique des flux -->
+        <div class="mt-8">
+            <h3 class="text-lg mb-4">Flows until now (in €):</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <!-- Ici vous pouvez intégrer votre graphique -->
+                <div class="h-64 bg-blue-50">
+                    <!-- Placeholder pour le graphique -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

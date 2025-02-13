@@ -2918,3 +2918,2217 @@ Traceback (most recent call last):
     raise TypeError(f"Invalid comparison between dtype={left.dtype} and {typ}")
 TypeError: Invalid comparison between dtype=datetime64[ns] and date
 "GET /api/market-data/DAX/ HTTP/1.1" 500 119250
+Internal Server Error: /set-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in set_current_date
+    new_date = datetime.strptime(data['date'], '%Y-%m-%d').date()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\_strptime.py", line 554, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\_strptime.py", line 333, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data '' does not match format '%Y-%m-%d'
+"POST /set-current-date/ HTTP/1.1" 500 81482
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 44, in get
+    current_date =  StructuredProduct.objects.first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET / HTTP/1.1" 500 77506
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 48, in get
+    Index.ASX200: 100,
+    ^^^^^^^^^^^^
+AttributeError: type object 'Index' has no attribute 'ASX200'
+"GET / HTTP/1.1" 500 77472
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /update-current-date/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 23, in update_current_date
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"POST /update-current-date/ HTTP/1.1" 500 71964
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 36, in get
+    pl_percentage =  self.portfolio.get_pnl()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Project.py", line 167, in get_pnl
+    return ((current_value - self.initial_capital) / self.initial_capital) * 100
+             ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'int' and 'MarketData'
+"GET / HTTP/1.1" 500 80763
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 36, in get
+    pl_percentage =  self.portfolio.get_pnl()
+                     ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Portfolio' object has no attribute 'get_pnl'
+"GET / HTTP/1.1" 500 77209
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 54, in get
+    'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strftime'
+"GET / HTTP/1.1" 500 78990
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 54, in get
+    'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strftime'
+"GET / HTTP/1.1" 500 79101
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 54, in get
+    'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strftime'
+"GET / HTTP/1.1" 500 79101
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77138
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77443
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 136, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77928
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 136, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77928
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 136, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77928
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 136, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77928
+Internal Server Error: /holdings/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in get
+    total_value = self.portfolio.get_total_value()
+                  ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET /holdings/ HTTP/1.1" 500 77702
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 136, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77928
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 134, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77928
+Internal Server Error: /holdings/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 61, in get
+    'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strftime'
+"GET /holdings/ HTTP/1.1" 500 79665
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 136, in get
+    performances = calculator.calculate_performances(self.market_data.current_date.strftime('%Y-%m-%d'))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\services\calculators\PerformanceCalculator.py", line 27, in calculate_performances
+    today_price = self.get_nearest_price(index.code, current_date)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\services\calculators\PerformanceCalculator.py", line 18, in get_nearest_price
+    check_date = target_date + timedelta(days=date_offset)
+                 ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can only concatenate str (not "datetime.timedelta") to str
+"GET /market_info/ HTTP/1.1" 500 87827
+Internal Server Error: /holdings/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 59, in get
+    'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strftime'
+"GET /holdings/ HTTP/1.1" 500 79677
+Internal Server Error: /market_info/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 130, in get
+    product = StructuredProduct.objects.first()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'StructuredProduct' has no attribute 'objects'
+"GET /market_info/ HTTP/1.1" 500 77976
+Internal Server Error: /holdings/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 59, in get
+    'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strftime'
+"GET /holdings/ HTTP/1.1" 500 79677
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.market_data = SingletonMarketData.get_instance()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 19, in get_instance
+    cls._instance = MarketData()
+                    ^^^^^^^^^^^^
+TypeError: MarketData.__init__() missing 1 required positional argument: 'file_path'
+"GET / HTTP/1.1" 500 76232
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.market_data = SingletonMarketData.get_instance()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 20, in get_instance
+    cls._instance.load_from_excel()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 109, in load_from_excel
+    prices_df = self.load_prices()# prix dans la monnaie courante
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 69, in load_prices
+    df = pd.read_excel(self.file_path, sheet_name="ClosePrice")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\io\excel\_base.py", line 495, in read_excel
+    io = ExcelFile(
+         ^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\io\excel\_base.py", line 1550, in __init__
+    ext = inspect_excel_format(
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\io\excel\_base.py", line 1402, in inspect_excel_format
+    with get_handle(
+         ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\io\common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\PC\\PycharmProjects\\tests\\ApplicationProduitStructures\\pythonProject\\structured_product\\data\\DonneesGPS2025.xlsx'
+"GET / HTTP/1.1" 500 108017
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 56, in get
+    'price_foreign': self.get_price_foreign(index),  # Utilisation correcte de la méthode
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 37, in get_price_foreign
+    taux_foreign = self.portfolio.current_prices[index] * self.market_data.get_index_exchange_rate(index, datetime(2009, 1, 5))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+"GET / HTTP/1.1" 500 82462
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Taux de change'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.market_data = SingletonMarketData.get_instance()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 20, in get_instance
+    cls._instance.load_from_excel()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 129, in load_from_excel
+    self.index_currency_pairs[index_code] = f"{row['Taux de change']}EUR"
+                                               ~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\series.py", line 1121, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Taux de change'
+"GET / HTTP/1.1" 500 115950
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Taux de change'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.market_data = SingletonMarketData.get_instance()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 20, in get_instance
+    cls._instance.load_from_excel()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 129, in load_from_excel
+    self.index_currency_pairs[index_code] = row['Taux de change']
+                                            ~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\series.py", line 1121, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Taux de change'
+"GET / HTTP/1.1" 500 115908
+Internal Server Error: /holdings/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 63, in get
+    'price_foreign': self.get_price_foreign(index),  # Utilisation correcte de la méthode
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 35, in get_price_foreign
+    exchange_rate = self.market_data.get_index_exchange_rate(index, self.market_data.current_date)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 162, in get_index_exchange_rate
+    index = self.indices[index_code]
+            ~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: <Index.ASX200: 'ASX200'>
+"GET /holdings/ HTTP/1.1" 500 86794
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 33, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 37, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 33, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 37, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 33, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 37, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 33, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 37, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 33, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 37, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 76, in get
+    'Rendement_detail': {index: self.get_detail(index, 'rendement') for index in Index},
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 56, in get_detail
+    'name': self.market_data.indices.get(index.value).rate_interest,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'rate_interest'
+"GET / HTTP/1.1" 500 82192
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 38, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 38, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 38, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+"POST /update_market_data/ HTTP/1.1" 500 89929
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 38, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 38, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 72, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 89929
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+"POST /update_market_data/ HTTP/1.1" 500 90022
+"POST /update_market_data/ HTTP/1.1" 500 90022
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 27, in __init__
+    self.initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 21, in initialize_equal_weights
+    price = market_data.get_price(idx.value, date)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\Market_data.py", line 85, in get_price
+    return self.price_strategy.get_data(index_code, date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Data\strategies\price_strategy.py", line 12, in get_data
+    raise ValueError("Data not loaded")
+ValueError: Data not loaded
+"POST /update_market_data/ HTTP/1.1" 500 90022
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 69, in get
+    results = simulator.run_simulation()  # Remplacez par l'indice souhaité
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Calculator_couverture\Couverture_Delta\model.py", line 63, in run_simulation
+    mean_prices, std_prices = analyze_results_numba(simulated_prices)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\numba\core\dispatcher.py", line 424, in _compile_for_args
+    error_rewrite(e, 'typing')
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\numba\core\dispatcher.py", line 365, in error_rewrite
+    raise e.with_traceback(None)
+numba.core.errors.TypingError: Failed in nopython mode pipeline (step: nopython frontend)
+[1m[1m[1m[1mNo implementation of function Function(<function mean at 0x00000169A463EF20>) found for signature:
+ 
+ >>> mean(array(float64, 2d, C), axis=Literal[int](1))
+ 
+There are 2 candidate implementations:
+[1m  - Of which 2 did not match due to:
+  Overload in function 'array_mean': File: numba\np\old_arraymath.py: Line 424.
+    With argument(s): '(array(float64, 2d, C), axis=int64)':[0m
+[1m   Rejected as the implementation raised a specific error:
+     TypingError: [1mgot an unexpected keyword argument 'axis'[0m[0m
+  raised from C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\numba\core\typing\templates.py:791
+[0m
+[0m[1mDuring: resolving callee type: Function(<function mean at 0x00000169A463EF20>)[0m
+[0m[1mDuring: typing of call at C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Calculator_couverture\Couverture_Delta\model.py (25)
+[0m
+[1m
+File "product_manager\Calculator_couverture\Couverture_Delta\model.py", line 25:[0m
+[1mdef analyze_results_numba(simulated_prices):
+[1m    mean_prices = np.mean(simulated_prices, axis=1)
+[0m    [1m^[0m[0m
+
+[0m[1mDuring: Pass nopython_type_inference[0m
+"GET / HTTP/1.1" 500 102145
