@@ -1,0 +1,56 @@
+# Fichiers Python compilés
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+
+# Environnement virtuel
+venv/
+../env/
+*.egg-info/
+*.eggs/
+dist/
+build/
+pip-wheel-metadata/
+
+# Fichiers sensibles et de configuration locale
+.env
+*.ini
+*.cfg
+settings_local.py
+secret.json
+
+# Logs et fichiers temporaires
+*.log
+*.pot
+*.pyc
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Base de données SQLite
+db.sqlite3
+db.sqlite3-journal
+
+# Cache et fichiers temporaires de Django
+migrations/
+staticfiles/
+media/
+*.sass-cache/
+*.cache
+__MACOSX/
+
+# Fichiers spécifiques aux IDE
+.vscode/
+.idea/
+*.iml
+
+# Caches de Jupyter Notebook
+.ipynb_checkpoints/
+
+# Fichiers liés à Docker
+docker-compose.override.yml
+
+# Fichiers spécifiques à Windows / MacOS
+Thumbs.db
+.DS_Store

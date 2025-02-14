@@ -65,10 +65,10 @@ class HoldingView(View):
     def get(self, request):
         self.market_data.next_date()
         self.portfolio.update_prices(self.market_data, self.market_data.current_date)
-        simulator = BlackScholesSimulation()
-        results = simulator.run_simulation()  # Remplacez par l'indice souhaité
-        print("je ne marche ")
-        print(f"Résultats de la simulation: {results}")
+        #simulator = BlackScholesSimulation()
+        #results = simulator.run_simulation()  # Remplacez par l'indice souhaité
+        #print("je ne marche ")
+        #print(f"Résultats de la simulation: {results}")
         context = {
             'Rendement_detail': {index: self.get_detail(index, 'rendement') for index in Index},
             'positions': {index: self.get_detail(index, 'position') for index in Index},

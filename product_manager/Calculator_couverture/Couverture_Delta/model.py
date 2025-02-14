@@ -1,81 +1,47 @@
-from ...Product.parameter.date.structured_product_dates import KEY_DATES_AUTO
-from ...Product.parameter.VolatilityCalculator import VolatilityCalculator
-from ...Product.Index import Index
 import numpy as np
-from scipy.stats import norm
 from numba import jit, prange
-
-index_codes = [index.value for index in Index]
+from numba.typed import List
 
 def get_singleton_market_data():
     from ...views import SingletonMarketData
     return SingletonMarketData
 
-@jit(nopython=True)
-def simulate_price_numba(S0, r, sigma, time_to_maturity, correlated_Z):
-    num_indices, num_simulations = correlated_Z.shape
-    ST = np.empty((num_indices, num_simulations))
-    for i in range(num_indices):
-        ST[i] = S0[i] * np.exp((r[i] - 0.5 * sigma[i]**2) * time_to_maturity
-                               + sigma[i] * np.sqrt(time_to_maturity) * correlated_Z[i])
-    return ST
-@jit(nopython=True)
-def analyze_results_numba(simulated_prices):
-    mean_prices = np.empty(simulated_prices.shape[0])
-    std_prices = np.empty(simulated_prices.shape[0])
-    for i in range(simulated_prices.shape[0]):
-        mean_prices[i] = np.mean(simulated_prices[i])
-        std_prices[i] = np.std(simulated_prices[i])
-    return mean_prices, std_prices
+
+@jit(nopython=True, fastmath=True)
+def simulate_single_path(S0, r, sigma, T, dt, Z):
+    steps = int(T / dt)
+    S = np.zeros(steps + 1, dtype=np.float64)
+    S[0] = S0
+    sqrt_dt = np.sqrt(dt)
+    exp_term = (r - 0.5 * sigma ** 2) * dt
+
+    for i in range(1, steps + 1):
+        S[i] = S[i - 1] * np.exp(exp_term + sigma * sqrt_dt * Z[i - 1])
+
+    return S
+
+
+@jit(nopython=True, parallel=True, fastmath=True)
+def simulate_multiple_paths(S0, r, sigma, T, dt, num_simulations, Z):
+    steps = int(T / dt)
+    paths = np.zeros((num_simulations, steps + 1), dtype=np.float64)
+
+    for sim in prange(num_simulations):
+        paths[sim] = simulate_single_path(S0, r, sigma, T, dt, Z[:, sim])  # Utilisation des chocs corrélés
+
+    return paths
+
+
 class BlackScholesSimulation:
-    def __init__(self):
-        self.market_data = get_singleton_market_data().get_instance()
-        self.volatility_calculator = VolatilityCalculator(self.market_data)
-        self.key_dates = KEY_DATES_AUTO
+    @staticmethod
+    @jit(nopython=True, parallel=True, fastmath=True)
+    def simulate_multiple_indices(S0_list, r_list, sigma_list, T, dt, num_simulations, correlated_Z):
+        num_indices = len(S0_list)
+        steps = int(T / dt)
 
-    def get_current_price(self, index_code):
-        return self.market_data.get_price(index_code, self.market_data.current_date)
+        # Correction : Initialiser `results` correctement
+        results = np.zeros((num_indices, num_simulations, steps + 1), dtype=np.float64)
 
-    def get_risk_free_rate_euro(self, index_code):
-        return self.market_data.get_index_interest_rate(index_code, self.market_data.current_date) * self.market_data.get_index_exchange_rate(index_code, self.market_data.current_date)
-
-    def get_volatility(self, index_code):
-        return self.volatility_calculator.calculate_volatility(index_code, self.market_data.current_date)
-
-    def get_cholesky(self, index_codes):
-        return self.volatility_calculator.calculate_vol_cholesky(index_codes, self.market_data.current_date)
-
-    def simulate_price(self, index_codes, time_to_maturity, num_simulations=10000):
-        S0 = np.array([self.get_current_price(code) for code in index_codes])
-        r = np.array([self.get_risk_free_rate_euro(code) for code in index_codes])
-        sigma = np.array([self.get_volatility(code) for code in index_codes])
-        Cholesky = self.get_cholesky(index_codes)
-
-        Z = np.random.standard_normal((len(index_codes), num_simulations))
-        correlated_Z = np.dot(Cholesky, Z)
-
-        return simulate_price_numba(S0, r, sigma, time_to_maturity, correlated_Z)
-
-    def run_simulation(self):
-
-        """
-        Cette fonction est juste un exemple
-        :return:
-        """
-        maturity_date = self.key_dates.Tc #ici c'est juste un exemple
-        date_constatation_1 = self.key_dates.get(1)
-
-        time_to_maturity = (maturity_date - self.market_data.current_date).days / 365.0
-
-        simulated_prices = self.simulate_price(index_codes, time_to_maturity)
-        mean_prices, std_prices = analyze_results_numba(simulated_prices)
-
-        results = {index: {'mean': mean, 'std': std}
-                   for index, mean, std in zip(index_codes, mean_prices, std_prices)}
-
+        for i in prange(num_indices):
+            results[i] = simulate_multiple_paths(S0_list[i], r_list[i], sigma_list[i], T, dt, num_simulations, correlated_Z[i])
         return results
-
-if __name__ == "__main__":
-    simulator = BlackScholesSimulation()
-    results = simulator.run_simulation()
-    print(f"Résultats de la simulation: {results}")
