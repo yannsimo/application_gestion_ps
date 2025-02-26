@@ -15,6 +15,7 @@ class ProductParameters:
         self.initial_date = self.key_dates.T0
         self.final_date = self.key_dates.Tc
         self.observation_dates = [self.key_dates.get_Ti(i) for i in range(1, 5)]  # T1 à T4
+        self.excluded_indices = set()  # Liste des indices exclus après versement d'un dividende
         self.num_simulations = 10000
         self.initial_value = 1000.0
         self.participation_rate = 0.4
@@ -24,6 +25,7 @@ class ProductParameters:
         self.dividend_multiplier = 50
         self.volatility_calculator = VolatilityCalculator(self.market_data)
         self.update_market_parameters()
+    
 
     def update_market_parameters(self):
         """Met à jour les paramètres de marché basés sur la date courante."""
