@@ -28,8 +28,20 @@ class ProductParameters:
     def update_market_parameters(self):
         """Met à jour les paramètres de marché basés sur la date courante."""
         self.volatilities = self._calculate_volatilities()
+        self.volatilities_echange = self._calculate_volatilities_echange()
+        self.volatilities_rate = self._calculate_volatilities_rate()
         self.risk_free_rates = self._calculate_risk_free_rates()
         self.cholesky_matrix = self._calculate_cholesky_matrix()
+
+    def _calculate_volatilities_echange(self) -> Dict[str, float]:
+        """Calcule les volatilités pour le taux de change de chaque indice."""
+        return {index: self.volatility_calculator.calculate_volatility_echange(index, self.current_date)
+                for index in self.underlying_indices}
+
+    def _calculate_volatilities_rate(self) -> Dict[str, float]:
+        """Calcule les volatilités pour le taux de change de chaque indice."""
+        return {index: self.volatility_calculator.calculate_volatility_rate(index, self.current_date)
+                for index in self.underlying_indices}
 
     def _calculate_volatilities(self) -> Dict[str, float]:
         """Calcule les volatilités pour chaque indice."""

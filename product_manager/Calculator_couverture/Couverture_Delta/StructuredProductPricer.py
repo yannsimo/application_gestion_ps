@@ -53,6 +53,7 @@ class StructuredProductPricer:
 
         # Paramètres de marché
         self.volatilities = self.product_parameter.volatilities  # Dictionnaire des volatilités par indice
+
         self.risk_free_rates = self.product_parameter.risk_free_rates  # Dictionnaire des taux sans risque par indice
         self.cholesky_matrix = self.product_parameter.cholesky_matrix  # Matrice de Cholesky
 
@@ -116,7 +117,7 @@ class StructuredProductPricer:
         date_constation_1 = self.observation_dates[0]  # Première date de constatation
 
         # Récupération des paramètres de marché pour chaque sous-jacent
-        vectors_S0 = np.array([self.market_data.get_price(code, current_date) for code in self.underlying_indices])
+        vectors_S0 = np.array([self.market_data.get_price(code, current_date) * self.market_data.get_index_exchange_rate(code,current_date) for code in self.underlying_indices])
         vector_r = np.array(
             [self.market_data.get_index_interest_rate(code, current_date) for code in self.underlying_indices])
         sigma = np.array([self.volatilities[code] for code in self.underlying_indices])
