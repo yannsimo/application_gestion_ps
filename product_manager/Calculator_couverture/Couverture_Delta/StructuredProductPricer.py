@@ -3,8 +3,8 @@ from typing import Dict, List
 from datetime import datetime
 from model import BlackScholesSimulation
 from ...Product.Index import Index
-from ...Product.parameter import ProductParameters
-from structured_product.product_manager.Product.parameter.Volatility.VolatilityCalculator import VolatilityCalculator
+from ...Product.parameter.ProductParameters import ProductParameters
+from ...Product.parameter.Volatility.VolatilityCalculator import VolatilityCalculator
 import numpy as np
 from numba import jit, prange
 

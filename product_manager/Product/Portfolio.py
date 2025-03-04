@@ -1,15 +1,11 @@
 from .Index import Index
 from datetime import datetime
-from ...Product.parameter import ProductParameters
-
-
-def get_singleton_market_data():
-    from ...views import SingletonMarketData
-    return SingletonMarketData
+from .parameter.ProductParameters import ProductParameters
+from ..Data.SingletonMarketData import SingletonMarketData
 
 class Portfolio:
     def __init__(self, initial_capital: float = 1000.0):
-        self.market_data = get_singleton_market_data().get_instance()
+        self.market_data = SingletonMarketData.get_instance()
         self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
         self.initial_capital = initial_capital
         self.positions = {idx: 0 for idx in Index}  # Index -> quantité

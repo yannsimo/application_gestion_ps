@@ -3,7 +3,7 @@ from typing import Dict
 import numpy as np
 from ...Product.Index import Index
 from ...Product.parameter.date.structured_product_dates import KEY_DATES_AUTO
-from structured_product.product_manager.Product.parameter.Volatility.VolatilityCalculator import VolatilityCalculator
+from .Volatility.VolatilityCalculator import VolatilityCalculator
 
 
 class ProductParameters:

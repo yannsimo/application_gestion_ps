@@ -5132,3 +5132,233 @@ File "product_manager\Calculator_couverture\Couverture_Delta\model.py", line 25:
 
 [0m[1mDuring: Pass nopython_type_inference[0m
 "GET / HTTP/1.1" 500 102145
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 11, in __init__
+    self.market_data = get_singleton_market_data().get_instance()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 6, in get_singleton_market_data
+    from ...views import SingletonMarketData
+ImportError: attempted relative import beyond top-level package
+"GET / HTTP/1.1" 500 79988
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 17, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77104
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 17, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77104
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 13, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77200
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 10, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77085
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77095
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77095
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77095
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77095
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77095
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 29, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77575
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'module' object is not callable
+"GET / HTTP/1.1" 500 77095
