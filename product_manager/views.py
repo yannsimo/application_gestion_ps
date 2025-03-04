@@ -1,23 +1,29 @@
 from enum import Enum
-
 from django.views import View
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 import json
 from datetime import datetime, timedelta
+import numpy as np
+
 from .Product.Portfolio import Portfolio
 from .Product.parameter.date.structured_product_dates import KEY_DATES_AUTO, KEY_DATES_CUSTOM
 from .Product.Index import Index
 from .Product.StructuredProduct import StructuredProduct
 from .Data.Market_data import MarketData
+from .Data.SingletonMarketData import SingletonMarketData
 from .services.calculators.PerformanceCalculator import PerformanceCalculator
 from .services.data_loader import MarketDataLoader
-from  .Calculator_couverture.Couverture_Delta.model import BlackScholesSimulation
-from  .Data.SingletonMarketData import SingletonMarketData
 
+# Import new components (these will be created later)
+# from .Calculator_couverture.Couverture_Delta.MonteCarloPXX import MonteCarloPXX
+# from .services.calculators.Product11PayoffCalculator import Product11PayoffCalculator
+# from .services.PortfolioManager import PortfolioManager
+# from .services.Product11Simulator import Product11Simulator
 
-
+# Simulator instance (will be initialized properly once we create the component)
+product_simulator = None
 
 class HoldingView(View):
     def __init__(self):
@@ -62,24 +68,29 @@ class HoldingView(View):
                 'value': self.portfolio.get_position_value(index)
             }
 
-    def get(self, request):
-        self.market_data.next_date()
-        self.portfolio.update_prices(self.market_data, self.market_data.current_date)
-        #simulator = BlackScholesSimulation()
-        #results = simulator.run_simulation()  # Remplacez par l'indice souhaité
-        #print("je ne marche ")
-        #print(f"Résultats de la simulation: {results}")
-        context = {
-            'Rendement_detail': {index: self.get_detail(index, 'rendement') for index in Index},
-            'positions': {index: self.get_detail(index, 'position') for index in Index},
-            'total_value': self.portfolio.get_total_value(),
-            'pl_percentage': self.portfolio.get_pnl(),
-            'liquidative_value': self.portfolio.get_total_value(),
-            'initial_capital': self.portfolio,
-            'current_date': self.market_data.current_date.strftime('%Y-%m-%d')
-        }
-
-        return render(request, 'holdings/list.html', context)
+    # In your view function (HoldingView.get)
+def get(self, request):
+    self.market_data.next_date()
+    self.portfolio.update_prices(self.market_data, self.market_data.current_date)
+    
+    # Make sure deltas is defined as a dictionary
+    deltas = {}  # Add this if it's missing
+    # If you have a simulation, get deltas from there
+    # deltas = product_simulator.deltas if product_simulator else {}
+    
+    context = {
+        'Rendement_detail': {index: self.get_detail(index, 'rendement') for index in Index},
+        'positions': {index: self.get_detail(index, 'position') for index in Index},
+        'total_value': self.portfolio.get_total_value(),
+        'pl_percentage': self.portfolio.get_pnl(),
+        'liquidative_value': self.portfolio.get_total_value(),
+        'initial_capital': self.portfolio,
+        'current_date': self.market_data.current_date.strftime('%Y-%m-%d'),
+        'deltas': deltas,  # Make sure this is a dictionary
+        'delta_quantities': {},  # Add this 
+    }
+    
+    return render(request, 'holdings/list.html', context)
 
     def post(self, request):
         action = request.path.split('/')[-2]
@@ -87,6 +98,13 @@ class HoldingView(View):
             try:
                 self.market_data.next_date()
                 self.portfolio.update_prices(self.market_data, self.market_data.current_date)
+                
+                # Update the simulator if it exists
+                global product_simulator
+                if product_simulator:
+                    # This will be implemented once we create the simulator
+                    pass
+                
                 return JsonResponse({
                     'success': True,
                     'date': self.market_data.current_date.strftime('%Y-%m-%d'),
@@ -117,6 +135,12 @@ def set_current_date(request):
 
         market_data = SingletonMarketData.get_instance()
         market_data.current_date = new_date
+        
+        # Update the simulator if it exists
+        global product_simulator
+        if product_simulator:
+            # This will be implemented once we create the simulator
+            pass
 
         return JsonResponse({
             'success': True,
@@ -141,22 +165,15 @@ class MarketInfoView(View):
             'current_date': self.market_data.current_date
         })
 
-
-
-# recuperer les données de marché d'un an avant
+# Get market data for a specific index
 def get_market_data(request, index_code):
     market_data = SingletonMarketData.get_instance()
-    # Obtenir la date courante depuis le produit structuré
-
     current_date = market_data.current_date
 
-    # Charger les prix depuis le loader
     loader = MarketDataLoader()
-
-    # Obtenir les prix pour l'année écoulée
     prices_data = loader.get_year_prices(index_code, current_date)
-    print(prices_data)
-    # Préparer les données pour le frontend
+
+    # Prepare the data for the frontend
     prices = {
         str(date): float(price)
         for date, price in prices_data.items()
@@ -165,4 +182,148 @@ def get_market_data(request, index_code):
     return JsonResponse({
         'dates': list(prices.keys()),
         'prices': list(prices.values())
+    })
+
+# New view functions for simulation and portfolio management
+
+@require_POST
+def run_simulation(request):
+    """Run a Monte Carlo simulation"""
+    try:
+        global product_simulator
+        if not product_simulator:
+            # This will be implemented once we create the simulator
+            return JsonResponse({
+                'success': False,
+                'error': 'Simulator not initialized'
+            }, status=400)
+            
+        # Run the simulation
+        # This will be implemented once we create the simulator
+        
+        return JsonResponse({
+            'success': True,
+            'message': 'Simulation run successfully'
+        })
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+
+@require_POST
+def get_portfolio_summary(request):
+    """Get a summary of the current portfolio"""
+    try:
+        global product_simulator
+        if not product_simulator:
+            # This will be implemented once we create the simulator
+            return JsonResponse({
+                'success': False,
+                'error': 'Simulator not initialized'
+            }, status=400)
+            
+        # Get portfolio summary
+        # This will be implemented once we create the simulator
+        
+        return JsonResponse({
+            'success': True,
+            'portfolio_summary': {}  # Will be filled once simulator is created
+        })
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+
+@require_POST
+def get_deltas(request):
+    """Get the current delta hedging ratios"""
+    try:
+        global product_simulator
+        if not product_simulator:
+            # This will be implemented once we create the simulator
+            return JsonResponse({
+                'success': False,
+                'error': 'Simulator not initialized'
+            }, status=400)
+            
+        # Get deltas
+        # This will be implemented once we create the simulator
+        
+        return JsonResponse({
+            'success': True,
+            'deltas': {}  # Will be filled once simulator is created
+        })
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+
+@require_POST
+def get_expected_payoff(request):
+    """Get the expected payoff"""
+    try:
+        global product_simulator
+        if not product_simulator:
+            # This will be implemented once we create the simulator
+            return JsonResponse({
+                'success': False,
+                'error': 'Simulator not initialized'
+            }, status=400)
+            
+        # Get expected payoff
+        # This will be implemented once we create the simulator
+        
+        return JsonResponse({
+            'success': True,
+            'expected_payoff': 0.0  # Will be filled once simulator is created
+        })
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+
+def simulation_results_view(request):
+    """View for displaying simulation results"""
+    market_data = SingletonMarketData.get_instance()
+    
+    global product_simulator
+    if not product_simulator:
+        # Display a message if simulator not initialized
+        return render(request, 'holdings/simulation_results.html', {
+            'current_date': market_data.current_date,
+            'simulator_initialized': False
+        })
+    
+    # Get simulation results
+    # This will be implemented once we create the simulator
+    
+    return render(request, 'holdings/simulation_results.html', {
+        'current_date': market_data.current_date,
+        'simulator_initialized': True,
+        'simulation_results': {}  # Will be filled once simulator is created
+    })
+
+def delta_hedging_view(request):
+    """View for displaying delta hedging information"""
+    market_data = SingletonMarketData.get_instance()
+    
+    global product_simulator
+    if not product_simulator:
+        # Display a message if simulator not initialized
+        return render(request, 'holdings/delta_hedging.html', {
+            'current_date': market_data.current_date,
+            'simulator_initialized': False
+        })
+    
+    # Get delta hedging information
+    # This will be implemented once we create the simulator
+    
+    return render(request, 'holdings/delta_hedging.html', {
+        'current_date': market_data.current_date,
+        'simulator_initialized': True,
+        'deltas': {}  # Will be filled once simulator is created
     })

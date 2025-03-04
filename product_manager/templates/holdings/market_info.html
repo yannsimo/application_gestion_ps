@@ -1,96 +1,388 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="bg-blue-100 min-h-screen p-4">
-  <div class="grid grid-cols-3 gap-4 mb-8">
-      {% for indice in indices %}
-      <div class="bg-blue-200 p-4 rounded shadow cursor-pointer" data-index="{{ indice.index.code }}">
-          <div class="text-xl font-bold mb-2">{{ indice.index.name }}</div>
-          <div class="mb-2">
-              <div class="text-sm text-gray-600">Daily performance</div>
-              <div class="text-lg">{{ indice.daily|floatformat:2 }}%</div>
-          </div>
-          <div class="mb-2">
-              <div class="text-sm text-gray-600">6-months performance</div>
-              <div class="text-lg">{{ indice.six_month|floatformat:2 }}%</div>
-          </div>
-          <div>
-              <div class="text-sm text-gray-600">Year performance</div>
-              <div class="text-lg">{{ indice.annual|floatformat:2 }}%</div>
-          </div>
-      </div>
-      {% endfor %}
-  </div>
+<div class="bg-blue-50 min-h-screen p-4">
+    <!-- Header -->
+    <div class="bg-blue-600 text-white p-4 mb-6 rounded-lg shadow flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Market Information Dashboard</h1>
+        <div class="text-lg">Current date: {{ current_date|date:"Y-m-d" }}</div>
+    </div>
 
-  <div class="bg-white rounded-lg shadow p-4">
-      <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl" id="chartTitle">Stock Price Movement</h2>
-          <div class="flex gap-4">
-              <button class="px-4 py-2 bg-blue-500 text-white rounded" id="prevIndex">←</button>
-              <button class="px-4 py-2 bg-blue-500 text-white rounded" id="nextIndex">→</button>
-          </div>
-      </div>
-      <div class="chart-container h-96">
-          <canvas id="priceChart"></canvas>
-      </div>
-  </div>
+    <!-- Index Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {% for indice in indices %}
+        <div class="bg-white p-4 rounded-lg shadow-lg transition-transform duration-200 transform hover:scale-105 cursor-pointer" data-index="{{ indice.index.code }}">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h2 class="text-xl font-bold mb-2">{{ indice.index.name }}</h2>
+                    <p class="text-sm text-gray-500">{{ indice.index.code }}</p>
+                </div>
+                <div class="text-white bg-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                    {{ indice.index.country|slice:":2" }}
+                </div>
+            </div>
+            
+            <div class="mt-4 grid grid-cols-3 gap-2">
+                <div class="bg-blue-50 p-2 rounded">
+                    <div class="text-xs text-gray-600">Daily</div>
+                    <div class="text-lg font-semibold {% if indice.daily >= 0 %}text-green-600{% else %}text-red-600{% endif %}">
+                        {{ indice.daily|floatformat:2 }}%
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-2 rounded">
+                    <div class="text-xs text-gray-600">6-Month</div>
+                    <div class="text-lg font-semibold {% if indice.six_month >= 0 %}text-green-600{% else %}text-red-600{% endif %}">
+                        {{ indice.six_month|floatformat:2 }}%
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-2 rounded">
+                    <div class="text-xs text-gray-600">Annual</div>
+                    <div class="text-lg font-semibold {% if indice.annual >= 0 %}text-green-600{% else %}text-red-600{% endif %}">
+                        {{ indice.annual|floatformat:2 }}%
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <div class="text-sm text-gray-600 mb-1">Performance</div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="{% if indice.annual >= 0 %}bg-green-600{% else %}bg-red-600{% endif %} h-2.5 rounded-full" style="width: {{ indice.annual|absolute_value|min_max:0:50 }}%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>-50%</span>
+                    <span>0%</span>
+                    <span>+50%</span>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="mt-4 text-sm text-gray-600 grid grid-cols-2 gap-2">
+                <div>Currency: {{ indice.index.currency }}</div>
+                <div>Status: {% if indice.index.code in excluded_indices %}Excluded{% else %}Active{% endif %}</div>
+                <div class="col-span-2">
+                    <div class="text-xs text-gray-500">Volatility: {{ volatilities|get_item:indice.index.code|default:"N/A"|floatformat:2 }}%</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Chart Section -->
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold" id="chartTitle">Index Price Movement</h2>
+            <div class="flex items-center space-x-4">
+                <div class="text-sm text-gray-600">
+                    <span class="font-medium">View:</span>
+                    <select id="chartPeriod" class="ml-2 border rounded p-1">
+                        <option value="1M">1 Month</option>
+                        <option value="3M">3 Months</option>
+                        <option value="6M" selected>6 Months</option>
+                        <option value="1Y">1 Year</option>
+                        <option value="ALL">All</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="px-3 py-1 bg-blue-600 text-white rounded text-sm" id="prevIndex">←</button>
+                    <button class="px-3 py-1 bg-blue-600 text-white rounded text-sm" id="nextIndex">→</button>
+                </div>
+            </div>
+        </div>
+        <div class="h-96">
+            <canvas id="priceChart"></canvas>
+        </div>
+    </div>
+    
+    <!-- Correlation Matrix Section -->
+    <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-4">Index Correlation Matrix</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full" id="correlationTable">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Index</th>
+                        {% for indice in indices %}
+                        <th class="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ indice.index.code }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for indice in indices %}
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{{ indice.index.code }}</td>
+                        {% for indice2 in indices %}
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {% if indice.index.code == indice2.index.code %}
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">1.00</span>
+                            {% else %}
+                            {{ correlation_matrix|get_item:indice.index.code|get_item:indice2.index.code|default:"0.00"|floatformat:2 }}
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Volatility Section -->
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Index Volatilities</h2>
+            <canvas id="volatilityChart" height="300"></canvas>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Dividend Potential</h2>
+            <p class="text-sm text-gray-600 mb-4">Estimated dividend based on current performance (50 × performance)</p>
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Index</th>
+                        <th class="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Performance</th>
+                        <th class="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Potential Dividend</th>
+                        <th class="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for indice in indices %}
+                    {% if indice.index.code not in excluded_indices %}
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{{ indice.index.code }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap {% if indice.annual >= 0 %}text-green-600{% else %}text-red-600{% endif %}">
+                            {{ indice.annual|floatformat:2 }}%
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap font-medium">
+                            {% if indice.annual > 0 %}
+                            {{ indice.annual|multiply:50|floatformat:2 }}€
+                            {% else %}
+                            0.00€
+                            {% endif %}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                Active
+                            </span>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-async function getChartData(indexCode) {
-   const response = await fetch(`/api/market-data/${indexCode}/`);
-   return await response.json();
-}
+// Global variables for the charts
+let priceChart;
+let volatilityChart;
 
-async function updateChart(indexCode) {
-   const data = await getChartData(indexCode);
+// Index data
+const indices = [
+    {% for indice in indices %}
+    {
+        code: "{{ indice.index.code }}",
+        name: "{{ indice.index.name }}",
+        daily: {{ indice.daily|floatformat:4 }},
+        sixMonth: {{ indice.six_month|floatformat:4 }},
+        annual: {{ indice.annual|floatformat:4 }},
+        color: getRandomColor()
+    },
+    {% endfor %}
+];
 
-   if (window.currentChart) {
-       window.currentChart.destroy();
-   }
-
-   const ctx = document.getElementById('priceChart').getContext('2d');
-   window.currentChart = new Chart(ctx, {
-       type: 'line',
-       data: {
-           labels: data.dates,
-           datasets: [{
-               label: indexCode,
-               data: data.prices,
-               borderColor: 'rgb(59, 130, 246)',
-               tension: 0.1
-           }]
-       },
-       options: {
-           responsive: true
-       }
-   });
-
-   document.getElementById('chartTitle').textContent = `${indexCode} Price Movement`;
-}
-
-// Navigation
-const indices = [...document.querySelectorAll('[data-index]')].map(el => el.dataset.index);
+// Current index being displayed
 let currentIndex = 0;
 
-document.getElementById('prevIndex').onclick = () => {
-   currentIndex = (currentIndex - 1 + indices.length) % indices.length;
-   updateChart(indices[currentIndex]);
-};
+// Helper function to get random color
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
-document.getElementById('nextIndex').onclick = () => {
-   currentIndex = (currentIndex + 1) % indices.length;
-   updateChart(indices[currentIndex]);
-};
+// Fetch chart data
+async function getChartData(indexCode, period = '6M') {
+    const response = await fetch(`/api/market_data/${indexCode}/`);
+    const data = await response.json();
+    
+    // Filter data based on selected period
+    const dates = data.dates;
+    const prices = data.prices;
+    
+    let filteredDates = [...dates];
+    let filteredPrices = [...prices];
+    
+    if (period !== 'ALL') {
+        const months = parseInt(period);
+        const cutoffDate = new Date();
+        cutoffDate.setMonth(cutoffDate.getMonth() - months);
+        
+        const cutoffDateStr = cutoffDate.toISOString().split('T')[0];
+        const cutoffIndex = dates.findIndex(date => date >= cutoffDateStr);
+        
+        if (cutoffIndex !== -1) {
+            filteredDates = dates.slice(cutoffIndex);
+            filteredPrices = prices.slice(cutoffIndex);
+        }
+    }
+    
+    return {
+        dates: filteredDates,
+        prices: filteredPrices
+    };
+}
 
-// Initialize
-updateChart(indices[0]);
+// Update price chart
+async function updatePriceChart(indexCode, period = '6M') {
+    const data = await getChartData(indexCode, period);
+    
+    if (priceChart) {
+        priceChart.destroy();
+    }
+    
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    priceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.dates,
+            datasets: [{
+                label: indexCode,
+                data: data.prices,
+                borderColor: indices[currentIndex].color,
+                backgroundColor: `${indices[currentIndex].color}33`,
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: `${indices[currentIndex].name} Price Movement`
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+    
+    document.getElementById('chartTitle').textContent = `${indices[currentIndex].name} Price Movement`;
+}
 
-// Add click handlers to cards
-document.querySelectorAll('[data-index]').forEach(card => {
-   card.onclick = () => updateChart(card.dataset.index);
+// Create volatility chart
+function createVolatilityChart() {
+    const ctx = document.getElementById('volatilityChart').getContext('2d');
+    
+    const indexCodes = indices.map(index => index.code);
+    const volatilities = [
+        {% for indice in indices %}
+        {{ volatilities|get_item:indice.index.code|default:"15.0"|floatformat:1 }},
+        {% endfor %}
+    ];
+    const barColors = indices.map(index => index.color);
+    
+    volatilityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: indexCodes,
+            datasets: [{
+                label: 'Annualized Volatility (%)',
+                data: volatilities,
+                backgroundColor: barColors,
+                borderColor: barColors.map(color => color + '88'),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Volatility (%)'
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Navigation functions
+function navigateToPrevIndex() {
+    currentIndex = (currentIndex - 1 + indices.length) % indices.length;
+    const period = document.getElementById('chartPeriod').value;
+    updatePriceChart(indices[currentIndex].code, period);
+}
+
+function navigateToNextIndex() {
+    currentIndex = (currentIndex + 1) % indices.length;
+    const period = document.getElementById('chartPeriod').value;
+    updatePriceChart(indices[currentIndex].code, period);
+}
+
+// Document ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize first chart
+    if (indices.length > 0) {
+        updatePriceChart(indices[0].code, '6M');
+    }
+    
+    // Create volatility chart
+    createVolatilityChart();
+    
+    // Set up event listeners
+    document.getElementById('prevIndex').addEventListener('click', navigateToPrevIndex);
+    document.getElementById('nextIndex').addEventListener('click', navigateToNextIndex);
+    
+    document.getElementById('chartPeriod').addEventListener('change', function() {
+        updatePriceChart(indices[currentIndex].code, this.value);
+    });
+    
+    // Set up index card click handlers
+    document.querySelectorAll('[data-index]').forEach((card, index) => {
+        card.addEventListener('click', function() {
+            const indexCode = this.dataset.index;
+            const indexPosition = indices.findIndex(idx => idx.code === indexCode);
+            if (indexPosition !== -1) {
+                currentIndex = indexPosition;
+                const period = document.getElementById('chartPeriod').value;
+                updatePriceChart(indexCode, period);
+            }
+        });
+    });
 });
-</script>
-{% endblock %}
+
+// Filter functions for template
+// These would need to be implemented on Django side
+// {{ value|absolute_value }} - Would return absolute value
+// {{ value|min_max:0:50 }} - Would clamp value between 0 and 50
+// {{ value|multiply:50 }} - Would multiply value by 50
+// {{ dict|get_item:key }} - Would access dictionary item by key

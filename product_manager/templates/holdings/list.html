@@ -1,95 +1,389 @@
 <!-- holdings/list.html -->
 {% extends "base.html" %}
+{% load custom_filters %}
 
 {% block content %}
-<div class="min-h-screen bg-blue-100">
-    <!-- En-tête du Portfolio -->
+<div class="min-h-screen bg-blue-50">
+    <!-- Header with current date -->
+    <div class="bg-blue-600 text-white p-4 mb-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Product 11 - Portfolio Manager</h1>
+        <div class="text-lg">Current date: {{ current_date }}</div>
+    </div>
 
+    <!-- Portfolio Summary Card -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 m-4">
+        <div class="bg-white rounded-lg shadow p-4">
+            <h2 class="text-xl font-semibold mb-2">Portfolio Value</h2>
+            <div class="text-3xl font-bold text-blue-700">{{ total_value|floatformat:2 }}€</div>
+            <div class="text-sm text-gray-500 mt-1">Initial Investment: 1000.00€</div>
+            <div class="{% if pl_percentage >= 0 %}text-green-600{% else %}text-red-600{% endif %} font-semibold mt-2">
+                {{ pl_percentage|floatformat:2 }}% P&L
+            </div>
+        </div>
 
-    <!-- Information du Portfolio -->
-    <div class="p-4">
-        <h2 class="text-lg mb-4">Portfolio Information</h2>
+        <div class="bg-white rounded-lg shadow p-4">
+            <h2 class="text-xl font-semibold mb-2">Liquidative Value</h2>
+            <div class="text-3xl font-bold text-blue-700">{{ liquidative_value|floatformat:2 }}€</div>
+            <div class="text-sm text-gray-500 mt-1">Expected at Maturity</div>
+            {% if expected_payoff %}
+            <div class="text-sm font-semibold mt-2">Expected Payoff: {{ expected_payoff|floatformat:2 }}€</div>
+            {% endif %}
+        </div>
 
-        <!-- Tableau principal -->
+        <div class="bg-white rounded-lg shadow p-4">
+            <h2 class="text-xl font-semibold mb-2">Product Information</h2>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="text-sm font-medium">Guarantee Active:</div>
+                <div class="text-sm {% if min_guarantee_active %}text-green-600 font-bold{% else %}text-gray-600{% endif %}">
+                    {{ min_guarantee_active|yesno:"Yes,No" }}
+                </div>
+                <div class="text-sm font-medium">Excluded Indices:</div>
+                <div class="text-sm text-gray-600">
+                    {% if excluded_indices %}
+                        {{ excluded_indices|join:", " }}
+                    {% else %}
+                        None
+                    {% endif %}
+                </div>
+                <div class="text-sm font-medium">Participation Rate:</div>
+                <div class="text-sm text-gray-600">40%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs for different views -->
+    <div class="mx-4 mb-6">
+        <div class="border-b border-gray-200">
+            <nav class="-mb-px flex" aria-label="Tabs">
+                <button class="tab-button active-tab border-blue-500 text-blue-600 whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm" onclick="showTab('positions')">
+                    Portfolio Positions
+                </button>
+                <button class="tab-button border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm" onclick="showTab('deltas')">
+                    Delta Hedging
+                </button>
+                <button class="tab-button border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-4 border-b-2 font-medium text-sm" onclick="showTab('dividends')">
+                    Dividends
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Positions Tab -->
+    <div id="positions-tab" class="tab-content mx-4">
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <table class="w-full">
                 <thead class="bg-blue-100">
                     <tr>
-                        <th class="p-3 text-left">Product name</th>
+                        <th class="p-3 text-left">Index</th>
                         <th class="p-3 text-center">Quantity</th>
                         <th class="p-3 text-center">Price (€)</th>
-                        <th class="p-3 text-center">Price in foreign currency</th>
-                        <th class="p-3 text-right">Total quantity invested in the product</th>
+                        <th class="p-3 text-center">Price in Foreign Currency</th>
+                        <th class="p-3 text-right">Position Value (€)</th>
+                        <th class="p-3 text-right">Weight</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for index, data in Rendement_detail.items %}
-                    <tr class="border-t">
-                        <td class="p-3">{{ data.name }}</td>
-                        <td class="p-3 text-right">{{ data.quantity|floatformat:6 }}</td>
-                        <td class="p-3 text-right">{{ data.price_euro|floatformat:6 }}</td>
-                        <td class="p-3 text-right">{{ data.price|floatformat:6 }}</td>
-                        <td class="p-3 text-right">{{ data.value|floatformat:6 }}</td>
-                    </tr>
-                    {% endfor %}
                     {% for index, data in positions.items %}
                     <tr class="border-t">
                         <td class="p-3">{{ data.name }}</td>
                         <td class="p-3 text-right">{{ data.quantity|floatformat:6 }}</td>
-                        <td class="p-3 text-right">{{ data.price_euro|floatformat:6 }}</td>
-                        <td class="p-3 text-right">{{ data.price|floatformat:6 }}</td>
-                        <td class="p-3 text-right">{{ data.value|floatformat:6 }}</td>
+                        <td class="p-3 text-right">{{ data.price_euro|floatformat:2 }}</td>
+                        <td class="p-3 text-right">{{ data.price|floatformat:2 }}</td>
+                        <td class="p-3 text-right">{{ data.value|floatformat:2 }}</td>
+                        <td class="p-3 text-right">{{ data.weight|default:"0.00"|floatformat:2 }}%</td>
                     </tr>
                     {% endfor %}
+                    
+                    <!-- Cash Position -->
+                    <tr class="border-t bg-gray-50">
+                        <td class="p-3 font-semibold">Cash</td>
+                        <td class="p-3 text-right">-</td>
+                        <td class="p-3 text-right">-</td>
+                        <td class="p-3 text-right">-</td>
+                        <td class="p-3 text-right">{{ cash_position|floatformat:2 }}</td>
+                        <td class="p-3 text-right">{{ cash_weight|floatformat:2 }}%</td>
+                    </tr>
 
+                    <!-- Total -->
+                    <tr class="border-t bg-blue-50 font-semibold">
+                        <td class="p-3">TOTAL</td>
+                        <td class="p-3 text-right">-</td>
+                        <td class="p-3 text-right">-</td>
+                        <td class="p-3 text-right">-</td>
+                        <td class="p-3 text-right">{{ total_value|floatformat:2 }}</td>
+                        <td class="p-3 text-right">100.00%</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
+    </div>
 
-        <!-- Boutons de rebalancement -->
-        <div class="mt-4 flex gap-4">
-            <button class="bg-red-500 text-white px-4 py-2 rounded flex items-center">
-                <span class="mr-2">REBALANCING INFORMATION</span>
-                <span>⚪</span>
-            </button>
-            <button class="bg-purple-600 text-white px-4 py-2 rounded flex items-center">
-                <span class="mr-2">REBALANCE</span>
-                <span>▶</span>
-            </button>
+    <!-- Delta Hedging Tab -->
+    <div id="deltas-tab" class="tab-content mx-4 hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-blue-100">
+                    <tr>
+                        <th class="p-3 text-left">Index</th>
+                        <th class="p-3 text-center">Delta Value</th>
+                        <th class="p-3 text-center">Capital Allocation (€)</th>
+                        <th class="p-3 text-center">Price (€)</th>
+                        <th class="p-3 text-right">Required Quantity</th>
+                        <th class="p-3 text-right">Current Quantity</th>
+                        <th class="p-3 text-right">Difference</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, data in positions.items %}
+                    <tr class="border-t">
+                        <td class="p-3">{{ data.name }}</td>
+                        <td class="p-3 text-right">{{ deltas|get_item:data.name|default:"0.000"|floatformat:3 }}</td>
+                        <td class="p-3 text-right">{% widthratio deltas|get_item:data.name|default:0 1 total_value %}€</td>
+                        <td class="p-3 text-right">{{ data.price_euro|floatformat:2 }}</td>
+                        <td class="p-3 text-right">
+                            {% if data.price_euro and data.price_euro != 0 %}
+                                {{ delta_quantities|get_item:data.name|default:"0.000"|floatformat:6 }}
+                            {% else %}
+                                0.000000
+                            {% endif %}
+                        </td>
+                        <td class="p-3 text-right">{{ data.quantity|floatformat:6 }}</td>
+                        <td class="p-3 text-right {% if delta_diffs|get_item:data.name|default:0 > 0 %}text-green-600{% elif delta_diffs|get_item:data.name|default:0 < 0 %}text-red-600{% endif %}">
+                            {{ delta_diffs|get_item:data.name|default:"0.000"|floatformat:6 }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <!-- Informations complémentaires -->
-        <div class="mt-8 grid grid-cols-3 gap-4">
-            <!-- P&L -->
-            <div class="bg-blue-200 p-4 rounded">
-                <h3 class="font-bold">P&L:</h3>
-                <p class="text-xl mt-2">{{ pl_percentage|floatformat:3 }}%</p>
-            </div>
-
-            <!-- Value of portfolio -->
-            <div class="bg-blue-200 p-4 rounded">
-                <h3 class="font-bold">Value of portfolio:</h3>
-                <p class="text-xl mt-2">{{ total_value|floatformat:3 }}€</p>
-            </div>
-
-            <!-- Liquidative value -->
-            <div class="bg-blue-200 p-4 rounded">
-                <h3 class="font-bold">Liquidative value:</h3>
-                <p class="text-xl mt-2">{{ liquidative_value|floatformat:3 }}€</p>
-            </div>
+    <!-- Dividends Tab -->
+    <div id="dividends-tab" class="tab-content mx-4 hidden">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-blue-100">
+                    <tr>
+                        <th class="p-3 text-left">Observation Date</th>
+                        <th class="p-3 text-center">Best Performing Index</th>
+                        <th class="p-3 text-center">Performance</th>
+                        <th class="p-3 text-center">Dividend Amount (€)</th>
+                        <th class="p-3 text-right">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if dividends_paid %}
+                        {% for date, dividend in dividends_paid.items %}
+                        <tr class="border-t">
+                            <td class="p-3">{{ date|date:"Y-m-d" }}</td>
+                            <td class="p-3 text-center">{{ dividend.excluded_index }}</td>
+                            <td class="p-3 text-right">{{ dividend.performance|floatformat:2 }}%</td>
+                            <td class="p-3 text-right">{{ dividend.amount|floatformat:2 }}</td>
+                            <td class="p-3 text-right">
+                                {% if date <= current_date %}
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        Paid
+                                    </span>
+                                {% else %}
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                        Expected
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr class="border-t">
+                            <td class="p-3 text-center" colspan="5">No dividend payments yet</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <!-- Graphique des flux -->
-        <div class="mt-8">
-            <h3 class="text-lg mb-4">Flows until now (in €):</h3>
-            <div class="bg-white p-4 rounded-lg shadow">
-                <!-- Ici vous pouvez intégrer votre graphique -->
-                <div class="h-64 bg-blue-50">
-                    <!-- Placeholder pour le graphique -->
-                </div>
-            </div>
+    <!-- Rebalancing Actions -->
+    <div class="mt-6 mx-4 flex gap-4">
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center" id="rebalanceBtn">
+            <span class="mr-2">REBALANCE PORTFOLIO</span>
+            <span>⟳</span>
+        </button>
+        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded flex items-center" id="simulateBtn">
+            <span class="mr-2">RUN SIMULATION</span>
+            <span>▶</span>
+        </button>
+        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded flex items-center" id="optimizeBtn">
+            <span class="mr-2">OPTIMIZE HEDGING</span>
+            <span>↗</span>
+        </button>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="mt-8 mx-4">
+        <h3 class="text-lg mb-4 font-semibold">Portfolio Performance</h3>
+        <div class="bg-white p-4 rounded-lg shadow">
+            <canvas id="portfolioChart" class="h-64 w-full"></canvas>
         </div>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Tab switching functionality
+    function showTab(tabName) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.add('hidden');
+        });
+        
+        // Show selected tab
+        document.getElementById(tabName + '-tab').classList.remove('hidden');
+        
+        // Update active tab styling
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active-tab', 'border-blue-500', 'text-blue-600');
+            button.classList.add('border-transparent', 'text-gray-500');
+        });
+        
+        // Set active tab
+        const activeButton = Array.from(document.querySelectorAll('.tab-button')).find(
+            button => button.getAttribute('onclick').includes(tabName)
+        );
+        
+        if (activeButton) {
+            activeButton.classList.remove('border-transparent', 'text-gray-500');
+            activeButton.classList.add('active-tab', 'border-blue-500', 'text-blue-600');
+        }
+    }
+    
+    // Portfolio Chart
+    const ctx = document.getElementById('portfolioChart').getContext('2d');
+    const portfolioChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['T0', 'T1', 'T2', 'T3', 'T4', 'Tc'],
+            datasets: [{
+                label: 'Portfolio Value',
+                data: [1000, {{ portfolio_history|default:"1050, 1100, 1080, 1150, 1200" }}],
+                borderColor: 'rgb(59, 130, 246)',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+    
+    // Button Actions
+    document.getElementById('rebalanceBtn').addEventListener('click', function() {
+        fetch('/api/rebalance_portfolio/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Portfolio rebalanced successfully!');
+                location.reload();
+            } else {
+                alert('Error rebalancing portfolio: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to rebalance portfolio');
+        });
+    });
+    
+    document.getElementById('simulateBtn').addEventListener('click', function() {
+        fetch('/api/run_simulation/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = '/simulation_results/';
+            } else {
+                alert('Error running simulation: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to run simulation');
+        });
+    });
+    
+    document.getElementById('optimizeBtn').addEventListener('click', function() {
+        fetch('/api/optimize_hedging/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Hedging optimized successfully!');
+                location.reload();
+            } else {
+                alert('Error optimizing hedging: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to optimize hedging');
+        });
+    });
+    
+    // Helper for CSRF token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+
+<style>
+    .tab-content {
+        transition: all 0.3s ease;
+    }
+    
+    .active-tab {
+        position: relative;
+    }
+    
+    .active-tab::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgb(59, 130, 246);
+    }
+</style>
 {% endblock %}
