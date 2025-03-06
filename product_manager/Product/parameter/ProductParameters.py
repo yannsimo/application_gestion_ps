@@ -14,7 +14,7 @@ class ProductParameters:
         self.key_dates = KEY_DATES_AUTO
         self.initial_date = self.key_dates.T0
         self.final_date = self.key_dates.Tc
-        self.observation_dates = [self.key_dates.get_Ti(i) for i in range(1, 5)]  # T1 à T4
+        self.observation_dates = [self.key_dates.get_Ti(i) for i in range(0, 5)]  # T1 à T4
         self.excluded_indices = set()  # Liste des indices exclus après versement d'un dividende
         self.num_simulations = 10000
         self.initial_value = 1000.0

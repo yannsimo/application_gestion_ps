@@ -5362,3 +5362,1034 @@ Traceback (most recent call last):
                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: 'module' object is not callable
 "GET / HTTP/1.1" 500 77095
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 94765
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 94765
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 94765
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 26, in __init__
+    self.portfolio = Portfolio()
+                     ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 94765
+"GET / HTTP/1.1" 500 94765
+"GET / HTTP/1.1" 500 94765
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in __init__
+    HoldingView._portfolio_instance = Portfolio()
+                                      ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in __init__
+    HoldingView._portfolio_instance = Portfolio()
+                                      ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in __init__
+    HoldingView._portfolio_instance = Portfolio()
+                                      ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in __init__
+    HoldingView._portfolio_instance = Portfolio()
+                                      ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"POST /update_market_data/ HTTP/1.1" 500 95137
+"POST /update_market_data/ HTTP/1.1" 500 95137
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in __init__
+    HoldingView._portfolio_instance = Portfolio()
+                                      ^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Portfolio.py", line 9, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"POST /update_market_data/ HTTP/1.1" 500 95137
+"POST /update_market_data/ HTTP/1.1" 500 95137
+"POST /update_market_data/ HTTP/1.1" 500 95137
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 32, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 39, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 76956
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 41, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 76886
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 121, in get
+    calculator = PayoffCalculator(self.product)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 20, in __init__
+    self.lifecycle_results = self.product.simulate_product_lifecycle()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 125, in simulate_product_lifecycle
+    dividend = self.calculate_dividends(date)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 29, in calculate_dividends
+    if observation_date not in observation_dates:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'KeyDates' is not iterable
+"GET / HTTP/1.1" 500 91440
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 121, in get
+    calculator = PayoffCalculator(self.product)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 20, in __init__
+    self.lifecycle_results = self.product.simulate_product_lifecycle()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 125, in simulate_product_lifecycle
+    dividend = self.calculate_dividends(date)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 40, in calculate_dividends
+    best_index, best_return = self.basket.calculate_max_annual_return(previous_observation, observation_date)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Basket.py", line 45, in calculate_max_annual_return
+    returns = self.get_annual_returns(start_date, end_date)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Basket.py", line 24, in get_annual_returns
+    start_price = self.market_data.get_price(idx.value, start_date) * self.market_data.get_exchange_rate(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for *: 'float' and 'NoneType'
+"GET / HTTP/1.1" 500 101336
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 121, in get
+    calculator = PayoffCalculator(self.product)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 20, in __init__
+    self.lifecycle_results = self.product.simulate_product_lifecycle()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 125, in simulate_product_lifecycle
+    dividend = self.calculate_dividends(date)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 40, in calculate_dividends
+    best_index, best_return = self.basket.calculate_max_annual_return(previous_observation, observation_date)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Basket.py", line 45, in calculate_max_annual_return
+    returns = self.get_annual_returns(start_date, end_date)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\Basket.py", line 24, in get_annual_returns
+    start_price = self.market_data.get_price(idx.value, start_date) * self.market_data.get_exchange_rate(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for *: 'float' and 'NoneType'
+"GET / HTTP/1.1" 500 101336
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 90582
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 121, in get
+    calculator = PayoffCalculator(self.product)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 20, in __init__
+    self.lifecycle_results = self.product.simulate_product_lifecycle()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 134, in simulate_product_lifecycle
+    results['final_performance'] = self.calculate_final_performance()
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\StructuredProduct.py", line 57, in calculate_final_performance
+    basket_perf = self.basket.calculate_performance( self.product_parameter.key_dates.T0, self.product_parameter.key_dates.TC)
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'KeyDates' object has no attribute 'TC'. Did you mean: 'Tc'?
+"GET / HTTP/1.1" 500 91654
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 90582
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 122, in get
+    payoff_results = calculator.calculate_total_payoff()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 96, in calculate_total_payoff
+    discounted_dividends = self.calculate_discounted_dividends()
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 61, in calculate_discounted_dividends
+    discount_factor = self.calculate_discount_factor(self.product.initial_date, date)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\PayoffCalculator.py", line 45, in calculate_discount_factor
+    discount_factor = np.exp(-rate * duration_years)
+                             ^^^^^
+TypeError: bad operand type for unary -: 'NoneType'
+"GET / HTTP/1.1" 500 91582
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 38, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 68, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 76999
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 90582
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 30, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"GET / HTTP/1.1" 500 90582
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 34, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 50, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 35, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 51, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 137, in get
+    total_dividends = np.sum(dividends)
+                      ^^
+NameError: name 'np' is not defined
+"GET / HTTP/1.1" 500 81508
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 137, in get
+    total_dividends = np.sum(dividends)
+                      ^^
+NameError: name 'np' is not defined
+"GET / HTTP/1.1" 500 81508
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 35, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 51, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /update_market_data/
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 31, in __init__
+    self.product_parameter = ProductParameters(self.market_data, self.market_data.current_date)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 27, in __init__
+    self.update_market_parameters()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 32, in update_market_parameters
+    self.volatilities = self._calculate_volatilities()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\ProductParameters.py", line 50, in _calculate_volatilities
+    return {index: self.volatility_calculator.calculate_volatility(index, self.current_date)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\Product\parameter\Volatility\VolatilityCalculator.py", line 22, in calculate_volatility
+    start_date = current_date - timedelta(days=6 * 365)
+                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'datetime.timedelta'
+"POST /update_market_data/ HTTP/1.1" 500 90882
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 35, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 51, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\.venv\Lib\site-packages\django\views\generic\base.py", line 97, in view
+    self = cls(**initkwargs)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 35, in __init__
+    self._initialize_portfolio()
+  File "C:\Users\PC\PycharmProjects\tests\ApplicationProduitStructures\pythonProject\structured_product\product_manager\views.py", line 51, in _initialize_portfolio
+    self.portfolio.initialize_equal_weights(self.market_data, self.market_data.current_date)
+    ^^^^^^^^^^^^^^
+AttributeError: 'HoldingView' object has no attribute 'portfolio'
+"GET / HTTP/1.1" 500 77027

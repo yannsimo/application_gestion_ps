@@ -28,6 +28,34 @@ class MarketData:
         self.interest_rate_strategy = InterestRateStrategy(self.data_loader)
         self.exchange_rate_strategy = ExchangeRateStrategy(self.data_loader)
 
+        # Caches pour améliorer les performances
+        self._price_cache = {}
+        self._return_cache = {}
+        self._interest_rate_cache = {}
+        self._exchange_rate_cache = {}
+        self._last_price_cache = {}
+        self._last_exchange_rate_cache = {}
+        self._last_interest_rate_cache = {}
+        self._year_prices_cache = {}
+        self._date_indices_cache = {}
+
+        # Pour les recherches de dates rapides
+        self._dates_array = None
+        self._date_to_index = {}
+
+        # Mappings pour accès rapide
+        self._index_currency_map = {}
+        self._index_interest_map = {}
+
+    def _get_date_index(self, date: datetime) -> int:
+        """
+        Obtient l'index d'une date dans la liste des dates.
+        Utilise une recherche binaire pour de meilleures performances.
+        """
+        try:
+            return self.dates.index(date)
+        except ValueError:
+            return -1
     @property
     def current_date(self) -> datetime:
         if self._current_date is None and self.dates:
@@ -37,16 +65,26 @@ class MarketData:
     @current_date.setter
     def current_date(self, date: datetime) -> None:
         if date in self.dates:
+            # Effacer les caches liés à la date courante
             self._current_date = date
+            self._clear_current_date_caches()
         else:
             raise ValueError(f"Date {date} non disponible dans les données")
 
+    def _clear_current_date_caches(self):
+        """Vide les caches qui dépendent de la date courante"""
+        self._price_cache = {}
+        self._return_cache = {}
+        self._interest_rate_cache = {}
+        self._exchange_rate_cache = {}
+        self._year_prices_cache = {}
+
     def next_date(self) -> None:
         if self.current_date:
-            current_index = self.dates.index(self.current_date)
+            current_index = self._get_date_index(self.current_date)
             if current_index < len(self.dates) - 1:
                 self._current_date = self.dates[current_index + 1]
-
+                self._clear_current_date_caches()
     def previous_date(self) -> None:
         if self.current_date:
             current_index = self.dates.index(self.current_date)
@@ -179,3 +217,123 @@ class MarketData:
 
     def get_available_currency_pairs(self) -> List[str]:
         return self.exchange_rate_strategy.get_available_codes()
+
+    def get_last_available_price(self, index_code: str, target_date: datetime) -> float:
+        """
+        Obtient le dernier prix disponible pour un indice à une date donnée.
+        Si le prix n'est pas disponible à la date exacte, utilise le dernier prix connu.
+
+        Args:
+            index_code: Code de l'indice
+            target_date: Date cible
+
+        Returns:
+            Le dernier prix disponible, ou None si aucun prix n'est disponible
+        """
+        # Essayer d'obtenir le prix à la date exacte
+        price = self.get_price(index_code, target_date)
+
+        # Si le prix est disponible, le retourner
+        if price is not None:
+            return price
+
+        # Si le prix n'est pas disponible, chercher le dernier prix connu
+        # Trouver la dernière date avant target_date
+        previous_dates = [date for date in self.dates if date < target_date]
+
+        if not previous_dates:
+            return None  # Aucune date antérieure disponible
+
+        # Obtenir la dernière date avant target_date
+        last_available_date = max(previous_dates)
+
+        # Retourner le prix à cette date
+        return self.get_price(index_code, last_available_date)
+
+    def get_last_available_exchange_rate(self, index_code: str, target_date: datetime) -> float:
+        """
+        Obtient le dernier taux de change disponible pour un indice à une date donnée.
+        Si le taux n'est pas disponible à la date exacte, utilise le dernier taux connu.
+
+        Args:
+            index_code: Code de l'indice
+            target_date: Date cible
+
+        Returns:
+            Le dernier taux de change disponible, ou None si aucun taux n'est disponible
+        """
+        # Essayer d'obtenir le taux à la date exacte
+        rate = self.get_index_exchange_rate(index_code, target_date)
+
+        # Si le taux est disponible, le retourner
+        if rate is not None:
+            return rate
+
+        # Si le taux n'est pas disponible, chercher le dernier taux connu
+        # Trouver la dernière date avant target_date
+        previous_dates = [date for date in self.dates if date < target_date]
+
+        if not previous_dates:
+            return None  # Aucune date antérieure disponible
+
+        # Obtenir la dernière date avant target_date
+        last_available_date = max(previous_dates)
+
+        # Retourner le taux à cette date
+        return self.get_index_exchange_rate(index_code, last_available_date)
+
+    def get_last_available_interest_rate(self, currency: str, target_date: datetime) -> float:
+        """
+        Obtient le dernier taux d'intérêt disponible pour une devise à une date donnée.
+        Si le taux n'est pas disponible à la date exacte, utilise le dernier taux connu.
+
+        Args:
+            currency: Code de la devise
+            target_date: Date cible
+
+        Returns:
+            Le dernier taux d'intérêt disponible, ou None si aucun taux n'est disponible
+        """
+        # Essayer d'obtenir le taux à la date exacte
+        rate = self.get_interest_rate(currency, target_date)
+
+        # Si le taux est disponible, le retourner
+        if rate is not None:
+            return rate
+
+        # Si le taux n'est pas disponible, chercher le dernier taux connu
+        # Trouver la dernière date avant target_date
+        previous_dates = [date for date in self.dates if date < target_date]
+
+        if not previous_dates:
+            return None  # Aucune date antérieure disponible
+
+        # Obtenir la dernière date avant target_date
+        last_available_date = max(previous_dates)
+
+        # Retourner le taux à cette date
+        return self.get_interest_rate(currency, last_available_date)
+
+    def get_last_available_index_interest_rate(self, index_code: str, target_date: datetime) -> float:
+        """
+        Obtient le dernier taux d'intérêt disponible pour l'indice à une date donnée.
+        Si le taux n'est pas disponible à la date exacte, utilise le dernier taux connu.
+
+        Args:
+            index_code: Code de l'indice
+            target_date: Date cible
+
+        Returns:
+            Le dernier taux d'intérêt disponible, ou None si aucun taux n'est disponible
+        """
+        if not self.indices:
+            print("self.indices est vide. Données non chargées ?")
+            return None
+
+        index = self.indices.get(index_code)
+        if index is None:
+            print(f"Index non trouvé pour le code {index_code}")
+            return None
+
+        rate_interest_code = index.rate_interest
+        return self.get_last_available_interest_rate(rate_interest_code, target_date)

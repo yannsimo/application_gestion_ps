@@ -3,6 +3,8 @@ from .Basket import Basket
 from typing import List, Dict
 from .parameter.ProductParameters import ProductParameters
 from ..Data.SingletonMarketData import SingletonMarketData
+from numba import jit, njit, float64
+
 
 class StructuredProduct:
     def __init__(self, initial_date: datetime, final_date: datetime,
@@ -13,27 +15,39 @@ class StructuredProduct:
         self.final_date = final_date
         self.observation_dates = observation_dates
         self.initial_value = initial_value
-        self.basket = Basket(self.market_data, self.product_parameter)  # Passez les paramètres requis
+        self.basket = Basket(self.market_data, self.product_parameter)
         self.min_guaranteed_performance = None
         self.dividend_multiplier = 50
-        self.excluded_indices = set()  # Ajout pour corriger l'erreur
+        self.excluded_indices = set()
+
+        # Précalculer les dates importantes pour éviter les recherches répétées
+        self._observation_dates_set = set(observation_dates)
+        self._previous_observation_cache = {}
 
     def calculate_dividends(self, observation_date: datetime) -> float:
         """
         Calcule les dividendes distribués à une date spécifique (T1, ..., T4).
         Exclut définitivement l'indice ayant la meilleure rentabilité.
         """
-        observation_dates = self.product_parameter.key_dates
+        observation_dates = self.product_parameter.observation_dates
 
-        if observation_date not in observation_dates:
+        # Vérification rapide avec l'ensemble précalculé
+        if observation_date not in self._observation_dates_set:
             return 0.0  # Pas de dividende si ce n'est pas une date d'observation
 
-        # Trouver la dernière date d'observation avant celle-ci
-        previous_observation = min(observation_dates)  # T0
-        for date in observation_dates:
-            if date >= observation_date:
-                break
-            previous_observation = date
+        # Utiliser le cache pour la date d'observation précédente
+        if observation_date in self._previous_observation_cache:
+            previous_observation = self._previous_observation_cache[observation_date]
+        else:
+            # Trouver la dernière date d'observation avant celle-ci
+            previous_observation = min(observation_dates)  # T0
+            for date in observation_dates:
+                if date >= observation_date:
+                    break
+                previous_observation = date
+
+            # Stocker dans le cache
+            self._previous_observation_cache[observation_date] = previous_observation
 
         # Calculer la rentabilité maximale et récupérer l'indice correspondant
         best_index, best_return = self.basket.calculate_max_annual_return(previous_observation, observation_date)
@@ -45,42 +59,75 @@ class StructuredProduct:
         self.excluded_indices.add(best_index)
         self.basket.excluded_indices.add(best_index)  # Ajouter aussi au panier
 
-        # Calcul du dividende : 50 × performance max
-        dividend = self.dividend_multiplier * best_return
+        # Calcul du dividende optimisé avec Numba
+        return self._calculate_dividend(best_return, self.dividend_multiplier)
 
-        return dividend
+    @staticmethod
+    @njit
+    def _calculate_dividend(best_return: float, multiplier: float) -> float:
+        """Calcule le dividende avec Numba pour plus de rapidité"""
+        return multiplier * best_return
 
     def calculate_final_performance(self) -> float:
         """Calcule la performance finale avec les contraintes spécifiques"""
         # Suppression du paramètre market_data inutile
-        basket_perf = self.basket.calculate_performance( self.product_parameter.key_dates.T0, self.product_parameter.key_dates.TC)
+        basket_perf = self.basket.calculate_performance(
+            self.product_parameter.key_dates.T0,
+            self.product_parameter.key_dates.Tc
+        )
 
-        # Application des règles spécifiques
-        if basket_perf < 0:
-            basket_perf = max(basket_perf, -15)  # Protection à -15%
-        else:
-            basket_perf = min(basket_perf, 50)  # Plafond à +50%
-
-        # Application de la garantie de 20% si activée
-        if self.min_guaranteed_performance is not None:
-            basket_perf = max(basket_perf, 20)
+        # Application des règles spécifiques avec Numba
+        basket_perf = self._apply_performance_constraints(
+            basket_perf,
+            -0.15,  # Protection à -15%
+            0.5,  # Plafond à +50%
+            0.2 if self.min_guaranteed_performance is not None else None  # Garantie à 20% si activée
+        )
 
         return basket_perf
 
+    @staticmethod
+    @njit
+    def _apply_performance_constraints(perf: float, min_negative: float, max_positive: float,
+                                       guaranteed_perf: float = None) -> float:
+        """Applique les contraintes de performance avec Numba"""
+        if perf < 0:
+            result = max(perf, min_negative)
+        else:
+            result = min(perf, max_positive)
+
+        # Appliquer la garantie si elle est activée
+        if guaranteed_perf is not None:
+            result = max(result, guaranteed_perf)
+
+        return result
+
     def check_minimum_guarantee(self, observation_date: datetime) -> bool:
         """Vérifie si la performance annuelle déclenche la garantie de 20%"""
-        # Trouver la date précédente
-        previous_date = self.initial_date
-        for date in self.observation_dates:
-            if date >= observation_date:
-                break
-            previous_date = date
+        # Trouver la date précédente (utiliser le cache si possible)
+        if observation_date in self._previous_observation_cache:
+            previous_date = self._previous_observation_cache[observation_date]
+        else:
+            previous_date = self.initial_date
+            for date in self.observation_dates:
+                if date >= observation_date:
+                    break
+                previous_date = date
+            self._previous_observation_cache[observation_date] = previous_date
 
         annual_perf = self.basket.calculate_annual_basket_performance(previous_date, observation_date)
-        if annual_perf >= 0.20:  # 20%
+
+        # Vérification optimisée avec Numba
+        if self._check_guarantee_threshold(annual_perf, 0.20):
             self.min_guaranteed_performance = 0.20
             return True
         return False
+
+    @staticmethod
+    @njit
+    def _check_guarantee_threshold(performance: float, threshold: float) -> bool:
+        """Vérifie si la performance atteint le seuil avec Numba"""
+        return performance >= threshold
 
     def calculate_final_liquidative_value(self) -> float:
         """
@@ -89,16 +136,17 @@ class StructuredProduct:
         Returns:
             Valeur liquidative = valeur initiale + 40% de la performance finale
         """
-        # Calculer la performance finale (avec bornes -15%/+50% et garantie de 20% si activée)
+        # Calculer la performance finale
         final_performance = self.calculate_final_performance()
 
-        # Appliquer le coefficient de participation de 40%
-        participation_factor = 0.40
+        # Appliquer le coefficient de participation avec Numba
+        return self._calculate_final_value(self.initial_value, final_performance, 0.40)
 
-        # Calculer la valeur liquidative finale
-        final_value = self.initial_value * (1 + participation_factor * final_performance)
-
-        return final_value
+    @staticmethod
+    @njit
+    def _calculate_final_value(initial_value: float, performance: float, participation: float) -> float:
+        """Calcule la valeur finale avec Numba"""
+        return initial_value * (1 + participation * performance)
 
     def simulate_product_lifecycle(self) -> Dict:
         """
@@ -125,7 +173,7 @@ class StructuredProduct:
             results['dividends'][date] = dividend
 
             # Vérifier si la garantie de 20% est activée
-            if self.check_minimum_guarantee(date):
+            if not results['guarantee_activated'] and self.check_minimum_guarantee(date):
                 results['guarantee_activated'] = True
                 results['guarantee_activation_date'] = date
 
